@@ -11,12 +11,18 @@ variable "inst_name" {
   default     = "srv_01"
   description = "Name of created instance"
 }
+/*
 variable "key_name" {
   type        = string
   default     = "hlltf02"
   description = "KeyPair named \"hlltf02\" will be created with default or user-provided public ssh key"
 }
-
+*/
+variable "pub_key" {
+  type        = string
+  default     = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3yu+bHuOILNTi8jUEsglJAIxTdXpfFaQQYau5u5QKuLaoPEM/i55hNPNYSPimu9UCB7s4XE2Bos31IU6+6l4jHdkGJjGUzFE8TGZXAEY547ajp0JiQ8jQdjB+LUU/c74/QW7OaHyT8bHJML222lkIfgDo9Sln3HLvCp3/EWWGwqJKC6F6npJ1nj0VDgPiU8JIKwmxkLCjprKa5I2kjx4weoNzHNLor00+PT/nvyXpXv9LLvqiB4mkooVcDz7lHdqDCQxY8oziCnzQe9MJpaRUOkLp7Nbd8vh40ppwRDar759qOC9BD6PXSr99PvG217YlJWkblfdwRx1s4m1hqh19"
+  description = "Public key string"
+}
 variable "ami_id" {
   type        = string
   default     = "ami-0885b1f6bd170450c"

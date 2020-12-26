@@ -1,9 +1,15 @@
 resource "aws_instance" "srv" {
-  ami             = var.ami_id
-  instance_type   = var.inst_type
-  key_name        = var.key_name
+  ami           = var.ami_id
+  instance_type = var.inst_type
+  //  key_name        = var.key_name
+  key_name        = aws_key_pair.this.key_name
   security_groups = [aws_security_group.this.name]
   tags            = merge(var.tags, { "Name" = var.inst_name })
+}
+resource "aws_key_pair" "this" {
+  key_name_prefix = "hlltf2keys"
+  public_key      = var.pub_key
+  tags            = var.tags
 }
 
 resource "aws_eip" "this" {
