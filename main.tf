@@ -23,6 +23,7 @@ module "instance" {
   ami_id    = var.aws_ami_id
   key_name  = aws_key_pair.hlltf02.key_name
   elasticIP = var.add_elastic_ip
+  ebs_size  = var.aws_ebs_size
   tags      = local.common_tags
 }
 
@@ -32,6 +33,7 @@ module "instance2" {
   elasticIP = true
   inst_type = "t3.micro"
   inst_name = "TmpSrv_t3"
+  ebs_size  = 12                      //just fixed size example
   ami_id    = "ami-0be2609ba883822ec" //Amazon Linux
   key_name  = aws_key_pair.hlltf02.key_name
   tags      = local.common_tags

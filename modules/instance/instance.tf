@@ -15,7 +15,7 @@ resource "aws_eip" "this" {
 resource "aws_ebs_volume" "this" {
   availability_zone = aws_instance.srv.availability_zone
   type              = "gp2"
-  size              = 8
+  size              = var.ebs_size
   tags              = merge(var.tags, { "Name" = "Temporary" })
 }
 resource "aws_volume_attachment" "this" {

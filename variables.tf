@@ -19,3 +19,12 @@ variable "add_elastic_ip" {
   default     = false
   description = "Attach elastic IP"
 }
+variable "aws_ebs_size" {
+  type        = number
+  default     = 8
+  description = "Additional EBS size 8-20 Gb"
+  validation {
+    condition     = var.aws_ebs_size >= 8 || var.aws_ebs_size <= 20
+    error_message = "From 8 to 20 Gb only."
+  }
+}

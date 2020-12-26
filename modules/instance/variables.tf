@@ -27,5 +27,14 @@ variable "elasticIP" {
   default     = false
   description = "Set to \"TRUE\" for adding Elastic IP to EC2 instance"
 }
+variable "ebs_size" {
+  type        = number
+  default     = 8
+  description = "Addition ebs storage size in GB"
+  validation {
+    condition     = var.ebs_size >= 8 && var.ebs_size <= 20
+    error_message = "Should be between 8 GB and 20 GB."
+  }
+}
 
 
